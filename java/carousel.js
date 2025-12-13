@@ -6,17 +6,10 @@ function loopIndex(index) {
 }
 
 function closeAllDescriptions() {
-  document.querySelectorAll('.book-info.open').forEach(info => {
-    info.classList.remove('open');
-  });
-
-  document.querySelectorAll('.book-card img').forEach(img => {
-    img.style.display = "block";
-  });
 }
 
 function updateCarousel() {
-  closeAllDescriptions();
+  closeAllDescriptions(); 
 
   const leftIndex = loopIndex(activeIndex - 1);
   const rightIndex = loopIndex(activeIndex + 1);
@@ -39,22 +32,15 @@ function updateCarousel() {
 updateCarousel();
 
 cards.forEach((card, index) => {
-  card.addEventListener('click', () => {
-    if (index === activeIndex) {
-      const info = card.querySelector('.book-info');
-      const img = card.querySelector('img');
-
-      const isOpen = info.classList.toggle('open');
-
-      if (isOpen) {
-        img.style.display = "none";
-      } else {
-        img.style.display = "block";
-      }
-      return;
+  card.addEventListener('click', (event) => {
+    
+    if (index !== activeIndex) {
+      event.preventDefault(); 
+      
+      activeIndex = index;
+      updateCarousel();
+      
+      return; 
     }
-
-    activeIndex = index;
-    updateCarousel();
   });
 });

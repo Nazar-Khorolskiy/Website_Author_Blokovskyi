@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="uk">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./css/style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;900&display=swap"
+      rel="stylesheet"
+    />
+    <title>Blokovskyi_book-6</title>
+  </head>
+
+  <body>
+    <header>
+      <a class="btn_main" href="./index.html">На головну</a>
+      <div class="container_header">
+        <div class="title_name">Михаїл</div>
+        <div class="title_name">Блоковський</div>
+        <img class="header_logo" src="./images/logo.jpg" alt="logo" />
+        <p class="title_text">Автор сучасної прози</p>
+      </div>
+      <div class="container_title_book_1">
+        <h1 class="title_book_1">Впади дамбо впади</h1>
+      </div>
+      <nav></nav>
+    </header>
+    <main>
+      <div class="container_book-1">
+        <img class="book_img" src="./images/book_6.jpg" alt="book-6" />
+
+        <div class="container_text_book_1">
+          <h2>Опис:</h2>
+          <p>
+            Після страшної події промислове містечко під дамбою було евакуйоване
+            через загрозу потопу. Але одна жінка все ж лишилася. Її тримала сама
+            дамба. І вона не встоїть. І жінка це знала.
+          </p>
+          <h2>Анотація:</h2>
+          <p>
+            Цю історію я написав саме і свій час. Вона стала капсулою десятка
+            спогадів. Зокрема про юнацьку закоханість. Ідея твору прийшла до
+            мене під час підготовки матеріалу для оповідки «Їй просто випав
+            Орел». В одному інтерв’ю літня жінка жалілася на циганів, які
+            крадуть глину, підриваючи дамбу. Через них букву ризик того, що
+            дамба не встоїть і село затопить. Інтерв’ю подарувало мені
+            концепцію, а чотирьох річний досвід юнацької закоханості дав мені
+            життєвий головний конфлікт. Дуже емоційних попереджую, історія може
+            пробити на сльози.
+          </p>
+        </div>
+      </div>
+    </main>
+    <footer>
+      <div class="container_footer">
+        <button class="btn_footer_modal contact-open" type="button">
+          Написати
+        </button>
+        <a
+          href="mailto:blokovsky@gmail.com"
+          target="_blank"
+          rel="noopener noreferrer"
+          ><img
+            class="social_media"
+            src="./icon/gmail-icon.svg"
+            alt="icon-gmail"
+        /></a>
+        <a
+          href="https://www.instagram.com/mike_blokovsky?igsh=MWNtMm90OHc3d3ZhMQ=="
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <img
+            class="social_media"
+            src="./icon/instagram.svg"
+            alt="icon-instagram"
+        /></a>
+      </div>
+    </footer>
+
+    <div class="backdrop">
+      <div class="modal">
+        <button class="modal-close-btn" type="button">✕</button>
+        <h2>Зв'яжіться з автором</h2>
+        <form class="contact-form">
+          <label>
+            Ім'я:
+            <input type="text" name="name" required />
+          </label>
+
+          <label>
+            Email:
+            <input type="email" name="email" required />
+          </label>
+
+          <label>
+            Телефон:
+            <div class="phone-wrap">
+              <span class="phone-prefix">+380</span>
+              <input
+                class="phone-input"
+                type="tel"
+                name="phone"
+                maxlength="9"
+                required
+              />
+            </div>
+          </label>
+
+          <label>
+            Ваше повідомлення:
+            <textarea name="message" rows="4" required></textarea>
+          </label>
+          <button class="send-btn" type="submit">Відправити</button>
+        </form>
+      </div>
+    </div>
+
+    <script src="./java/modal.js"></script>
+    <script src="./java/carousel.js"></script>
+  </body>
+</html>

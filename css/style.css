@@ -52,15 +52,36 @@ a {
 
 /* Хедер верхняя часть */
 
-.header-title {
-  font-size: 24px;
-  font-weight: 400;
+.container_header {
   display: flex;
-  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+}
+
+.title_name {
+  text-transform: uppercase;
   color: var(--color-primary-white);
+  font-weight: 900;
+  font-size: 36px;
+  line-height: 1.1;
+  margin-top: 20px;
+}
+
+.header_logo {
+  width: 220px;
+  margin-top: 12px;
+}
+
+.title_text {
+  color: var(--color-primary-white);
+  font-weight: 300;
 }
 
 /* Навигация в футере */
+
+.container_footer {
+  margin-bottom: 20px;
+}
 
 .container_nav {
   display: flex;
@@ -100,6 +121,12 @@ a {
   font-weight: 300;
 }
 
+.btn_footer_modal {
+  background-color: var(--color-primary-orange);
+  color: var(--color-primary-white);
+  font-weight: 300;
+}
+
 /* Раздел про Автора */
 
 .author_title {
@@ -129,7 +156,7 @@ a {
   max-width: 375px;
   width: 100%;
   overflow: visible;
-  margin: 40px auto;
+  margin: 8px auto;
   position: relative;
   height: 420px;
 }
@@ -147,7 +174,7 @@ a {
 .book-card {
   position: absolute;
   transition: transform 0.4s ease, filter 0.4s ease, opacity 0.4s ease;
-  width: 120px;
+  width: 170px;
   pointer-events: auto;
   opacity: 0;
   filter: blur(5px);
@@ -185,16 +212,6 @@ a {
   width: 100%;
   height: auto;
   display: block;
-}
-
-.book-info {
-  display: none;
-  text-align: center;
-}
-
-.book-info.open {
-  display: block;
-  margin-top: 12px;
 }
 
 /* Модальное окно */
@@ -319,6 +336,47 @@ a {
 .container_footer {
   display: flex;
   justify-content: space-around;
-  max-width: 425px;
   align-items: center;
+}
+
+/* Книга первая "Я застряг в одній сцені" */
+
+.btn_main {
+  display: inline-block;
+  margin: 16px;
+  background-color: var(--color-primary-orange);
+  padding: 8px;
+  border-radius: 16px;
+  color: var(--color-primary-white);
+}
+
+.book_img {
+  max-width: 170px;
+  height: auto;
+  width: 100%;
+  margin: 32px 20px 10px 20px;
+  border-radius: 8px;
+  float: left;
+}
+.container_book-1 {
+
+}
+
+.container_title_book_1 {
+  background-color: var(--color-primary-orange);
+  margin: 0 8px;
+  gap: 16px;
+  border-radius: 16px;
+  display: flex;
+  justify-content: center;
+  color: var(--color-primary-white);
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.container_text_book_1 {
+  background-color: var(--color-primary-white);
+  padding: 8px;
+  font-weight: 300;
+  margin: 20px 0;
 }
