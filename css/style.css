@@ -46,6 +46,10 @@ body {
   line-height: 1.5;
 }
 
+header {
+  position: relative;
+}
+
 a {
   text-decoration: none;
 }
@@ -119,6 +123,7 @@ a {
   border-radius: 16px;
   font-size: 16px;
   font-weight: 300;
+  color: var(--color-primary-white);
 }
 
 .btn_footer_modal {
@@ -145,12 +150,11 @@ a {
   text-indent: 12px;
 }
 
-/* Секция Твори */
-
-.stories_title {
+.title {
   margin: 0 auto;
-  color: var(--color-primary-white);
 }
+
+/* Секция Твори */
 
 .books-carousel {
   max-width: 375px;
@@ -339,11 +343,25 @@ a {
   align-items: center;
 }
 
+/* Ленні книга */
+
+.lenni_img {
+  width: 400px;
+  margin: 30px 0 10px 0;
+}
+
+.container_lenni_img {
+  display: flex;
+  justify-content: center;
+}
+
 /* Книга первая "Я застряг в одній сцені" */
 
 .btn_main {
   display: inline-block;
+  position: absolute;
   margin: 16px;
+  margin-top: 16px;
   background-color: var(--color-primary-orange);
   padding: 8px;
   border-radius: 16px;
@@ -357,9 +375,6 @@ a {
   margin: 32px 20px 10px 20px;
   border-radius: 8px;
   float: left;
-}
-.container_book-1 {
-
 }
 
 .container_title_book_1 {
@@ -379,4 +394,56 @@ a {
   padding: 8px;
   font-weight: 300;
   margin: 20px 0;
+}
+
+/* Футер, политика конфиденциальности */
+
+.container_legal {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 15px 16px;
+  color: var(--color-primary-white);
+  font-size: 14px;
+  text-align: center;
+}
+
+.legal_link {
+  color: var(--color-primary-white);
+  text-decoration: none;
+  margin: 3px 0;
+  transition: color 0.3s ease;
+  font-weight: 300;
+}
+
+.legal_link:hover {
+  color: var(--color-primary-orange);
+}
+
+.copyright_text {
+  margin-top: 10px;
+  font-weight: 400;
+}
+
+/* privacy.html стили для страницы с политикой конфиденциальности */
+
+.policy-container {
+  max-width: 800px;
+  margin: 40px auto;
+  padding: 20px;
+  background-color: var(--color-primary-white);
+  color: #333;
+  border-radius: 8px;
+  line-height: 1.8;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+.policy-container h1,
+.policy-container h2 {
+  color: var(--color-primary-blue);
+  text-align: center;
+  margin-bottom: 20px;
+}
+.policy-container p,
+.policy-container ul {
+  margin-bottom: 20px;
 }
