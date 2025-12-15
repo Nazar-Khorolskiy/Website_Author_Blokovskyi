@@ -206,7 +206,11 @@
       <div class="modal">
         <button class="modal-close-btn" type="button">✕</button>
         <h2>Зв'яжіться з автором</h2>
-        <form class="contact-form">
+        <form
+          class="contact-form"
+          action="https://formspree.io/f/xldqkrkl"
+          method="POST"
+        >
           <label>
             Ім'я:
             <input type="text" name="name" required />
@@ -236,6 +240,10 @@
             <textarea name="message" rows="4" required></textarea>
           </label>
           <button class="send-btn" type="submit">Відправити</button>
+          <p
+            id="form-feedback"
+            style="text-align: center; margin-top: 15px"
+          ></p>
         </form>
       </div>
     </div>
