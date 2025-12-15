@@ -154,6 +154,34 @@ a {
   margin: 0 auto;
 }
 
+.read-more-btn {
+  display: block;
+  width: 150px;
+  margin: 10px auto 20px;
+  padding: 10px 15px;
+  background-color: var(--color-primary-orange);
+  color: var(--color-primary-white);
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.read-more-btn:hover {
+  background-color: #ff8c00;
+}
+
+.hidden-content {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.5s ease-in-out;
+}
+
+.hidden-content.is-open {
+  max-height: 5000px;
+}
+
 /* Секция Твори */
 
 .books-carousel {
