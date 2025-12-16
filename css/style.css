@@ -70,6 +70,7 @@ a {
 .title_text {
   color: var(--color-primary-white);
   font-weight: 400;
+  text-align: center;
 }
 
 /* Навигация в футере */
@@ -83,8 +84,7 @@ a {
   justify-content: space-around;
   background-color: var(--color-primary-orange);
   padding: 8px;
-  margin: 0 8px;
-  gap: 16px;
+  gap: 4px;
   border-radius: 16px;
   color: var(--color-primary-white);
   font-weight: 400;
@@ -94,7 +94,7 @@ a {
   border: none;
   background-color: var(--color-primary-orange);
   display: inline-block;
-  font-size: 16px;
+  font-size: 12px;
   text-decoration: none;
   color: inherit;
   transition: transform 0.3s ease;
@@ -383,7 +383,7 @@ a {
 /* Ленні книга */
 
 .lenni_img {
-  width: 400px;
+  width: 320px;
   margin: 30px 0 10px 0;
 }
 
