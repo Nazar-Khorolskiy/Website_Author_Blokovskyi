@@ -80,22 +80,24 @@ a {
 
 .container_nav {
   display: flex;
-  justify-content: space-around;
+  justify-content: center;
   background-color: var(--color-primary-orange);
   padding: 8px;
-  gap: 4px;
   border-radius: 16px;
   color: var(--color-primary-white);
   font-weight: 400;
   align-items: center;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .button_nav {
   position: relative;
   border: none;
-  background-color: var(--color-primary-orange);
+  background-color: transparent;
   display: flex;
   align-items: center;
+  justify-content: center;
   font-size: 12px;
   text-decoration: none;
   color: inherit;
@@ -103,8 +105,9 @@ a {
   cursor: pointer;
   font-family: inherit;
   font-weight: 400;
-  padding: 5px 8px;
+  padding: 8px 12px;
   font-size: 14px;
+  white-space: nowrap;
 }
 
 .button_nav:hover {
