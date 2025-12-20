@@ -471,12 +471,13 @@ a {
 }
 
 .book_img {
-  max-width: 280px;
+  max-width: 300px;
   height: auto;
   width: 100%;
   margin: 32px 20px 10px 20px;
   border-radius: 8px;
-  float: left;
+  display: block;
+  margin: 0 auto;
 }
 
 .container_text_book_1 {
