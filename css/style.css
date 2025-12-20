@@ -1,7 +1,9 @@
-.courier-prime-regular {
-  font-family: "Courier Prime", monospace;
-  font-weight: 400;
+@font-face {
+  font-display: swap;
+  font-family: "Poppins";
   font-style: normal;
+  font-weight: 400;
+  src: url("../fonts/poppins-v24-latin-regular.woff2") format("woff2");
 }
 
 .courier-prime-bold {
@@ -23,7 +25,7 @@ html {
 body {
   background-color: var(--color-primary-blue);
   margin: 0;
-  font-family: "Courier New", Courier, monospace;
+  font-family: "Poppins", sans-serif;
   font-size: 18px;
   font-weight: 400;
   line-height: 1.5;
@@ -43,26 +45,28 @@ a {
   display: flex;
   flex-direction: column;
   align-items: center;
+  margin: 80px 0;
 }
 
 .title_name {
   text-transform: uppercase;
   color: var(--color-primary-white);
+  font-family: "Courier New", Courier, monospace;
   font-weight: 700;
   font-size: 40px;
   line-height: 1.1;
-  margin-top: 8px;
+  margin-bottom: 40px;
   letter-spacing: 2px;
 }
 
 .title_first_name {
   font-size: 20px;
-  margin-top: 20px;
+  margin-bottom: 12px;
 }
 
 .header_logo {
-  width: 220px;
-  margin-top: 12px;
+  width: 260px;
+  margin-bottom: 40px;
 }
 
 .title_text {
@@ -164,11 +168,12 @@ a {
   background-color: var(--color-primary-white);
   margin-top: 32px;
   padding: 8px 2px;
-  font-weight: 300;
+  font-weight: 400;
 }
 
 .text_author {
   text-indent: 12px;
+  margin-left: 4px;
 }
 
 .title {
@@ -178,6 +183,8 @@ a {
   line-height: 1.3;
   margin: 0;
   flex-shrink: 2;
+  font-family: "Courier New", Courier, monospace;
+  font-weight: 700;
 }
 
 .read-more-btn {
@@ -227,6 +234,7 @@ a {
   width: 375px;
   height: 100%;
   pointer-events: none;
+  touch-action: pan-y;
 }
 
 .book-card {
@@ -275,9 +283,7 @@ a {
   -webkit-user-drag: none;
 }
 
-
 /* Видео */
-
 
 .video_wrapper {
   position: relative;
@@ -457,6 +463,7 @@ a {
   position: relative;
   margin: 8px;
   margin-bottom: 0;
+  font-size: 16px;
   background-color: var(--color-primary-orange);
   padding: 8px;
   border-radius: 16px;
@@ -464,7 +471,7 @@ a {
 }
 
 .book_img {
-  max-width: 170px;
+  max-width: 280px;
   height: auto;
   width: 100%;
   margin: 32px 20px 10px 20px;

@@ -47,18 +47,17 @@ cards.forEach((card, index) => {
 
 
 let touchStartX = 0;
+let touchStartY = 0;
 let touchEndX = 0;
 
 const track = document.querySelector('.carousel-track');
 
 function handleSwipe() {
     const swipeThreshold = 50;
-
     if (touchEndX < touchStartX - swipeThreshold) {
         activeIndex = loopIndex(activeIndex + 1);
         updateCarousel();
     }
-    
     if (touchEndX > touchStartX + swipeThreshold) {
         activeIndex = loopIndex(activeIndex - 1);
         updateCarousel();
@@ -66,10 +65,23 @@ function handleSwipe() {
 }
 
 track.addEventListener('touchstart', (e) => {
-    touchStartX = e.changedTouches[0].screenX;
-}, { passive: true });
+    touchStartX = e.touches[0].clientX;
+    touchStartY = e.touches[0].clientY;
+}, { passive: false });
+
+track.addEventListener('touchmove', (e) => {
+    let touchMoveX = e.touches[0].clientX;
+    let touchMoveY = e.touches[0].clientY;
+
+    let deltaX = Math.abs(touchMoveX - touchStartX);
+    let deltaY = Math.abs(touchMoveY - touchStartY);
+
+    if (deltaX > deltaY) {
+        if (e.cancelable) e.preventDefault();
+    }
+}, { passive: false });
 
 track.addEventListener('touchend', (e) => {
-    touchEndX = e.changedTouches[0].screenX;
+    touchEndX = e.changedTouches[0].clientX;
     handleSwipe();
-}, { passive: true });
+}, { passive: false });
