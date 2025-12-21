@@ -164,6 +164,13 @@ a {
 
 /* Раздел про Автора */
 
+.container_text_author_main {
+  margin-top: 0;
+  background-color: var(--color-primary-white);
+  padding: 8px 2px;
+  font-weight: 400;
+}
+
 .container_text_author {
   background-color: var(--color-primary-white);
   margin-top: 32px;
@@ -213,6 +220,12 @@ a {
 
 .hidden-content.is-open {
   max-height: 5000px;
+}
+
+.author_foto {
+  width: 280px;
+  display: block;
+  margin: 0 auto;
 }
 
 /* Секция Твори */
@@ -537,4 +550,65 @@ a {
 .policy-container p,
 .policy-container ul {
   margin-bottom: 20px;
+}
+
+
+/* Кнопка Придбати и модальное окно для покупки с Новой Почтой */
+
+.container_buy_btn {
+  display: flex;
+  justify-content: center;
+  margin-top: 15px;
+}
+
+.buy-btn {
+  padding: 12px 40px;
+  background-color: var(--color-primary-orange);
+  color: var(--color-primary-white);
+  border: none;
+  border-radius: 8px;
+  font-size: 18px;
+  cursor: pointer;
+  font-weight: 400;
+  transition: transform 0.3s;
+}
+
+.buy-btn:hover {
+  transform: scale(1.05);
+  background-color: #ff8c00;
+}
+
+.np-container {
+  position: relative;
+}
+
+.autocomplete-results {
+  position: absolute;
+  background: white;
+  border: 1px solid #ccc;
+  width: 100%;
+  z-index: 2000;
+  max-height: 200px;
+  overflow-y: auto;
+  border-radius: 6px;
+  display: none;
+}
+
+.autocomplete-item {
+  padding: 8px;
+  cursor: pointer;
+  border-bottom: 1px solid #eee;
+  font-size: 14px;
+}
+
+.autocomplete-item:hover {
+  background: #f0f0f0;
+}
+
+#np-branch {
+  width: 100%;
+  padding: 8px;
+  margin-top: 5px;
+  border-radius: 6px;
+  background-color: white;
 }

@@ -30,7 +30,8 @@
         <div class="title_name">Блоковський</div>
         <img class="header_logo" src="./images/logo.jpg" alt="logo" />
         <p class="title_text">
-          Автор психологічної драми з елементами фантастики
+          Автор психологічної драми <br />
+          з елементами фантастики
         </p>
       </div>
     </header>
@@ -39,9 +40,15 @@
         <div class="container_title">
           <h2 class="title">Про автора</h2>
         </div>
-        <div class="container_text_author">
+        <img
+          class="author_foto"
+          src="./images/author_foto.jpg"
+          alt="author_foto"
+        />
+
+        <div class="container_text_author_main">
           <p class="text_author">
-            Михаїл Блоковський – автор сучасної літератури. легкість у читанні
+            Михаїл Блоковський – автор сучасної літератури. Легкість у читанні
             та глибина ідей не залишать байдужими тих, хто цінує свій час,
             присвячений книгам.
           </p>
@@ -59,7 +66,14 @@
               Долучаюся до сучасних українських авторів та старанно працюю над
               тим, щоби наш вік не запам'ятався, як пора фанфіків та
               графоманства. Моя мета - залишити слід в українській літературі.
-              Щоби люди казали: "так, із українського є, що почитати".
+              Щоби люди казали: "Так, із українського є, що почитати".
+            </p>
+            <p class="text_author">
+              Так уже вийшло, що найцікавішою темою для мене стала внутрішня
+              боротьба із самим собою. Зі своїми демонами, пороками,
+              комплексами, страхами. Тому в моїх творах присутні елементи
+              фантастики. Я використовую цей інструмент для візуального образу
+              того, із чим нам доводиться боротися щодня.
             </p>
             <p class="text_author">
               Якось у письменника спитали: "чому ти пишеш? Якщо тебе ніколи не
@@ -135,6 +149,11 @@
             alt="Lenni_book"
           />
         </div>
+
+        <div class="container_buy_btn">
+          <button class="buy-btn" id="open-buy-modal">Придбати</button>
+        </div>
+
         <div class="container_text_book_1">
           <p>Опис:</p>
           <p class="text_author">
@@ -156,6 +175,20 @@
             здатися, ніби в цій історії одна лише містика та фантастика, але
             насправді це лише обгортка, за якою ховається психологічна драма.
           </p>
+        </div>
+
+        <div class="container_title">
+          <h2 class="title">Відео історія написання</h2>
+        </div>
+        <div class="video_wrapper">
+          <iframe
+            src="https://www.youtube.com/embed/Z1an6B7HuCM?si=jnt1otA9JEzfqocC"
+            title="YouTube video player"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            referrerpolicy="strict-origin-when-cross-origin"
+            allowfullscreen
+          ></iframe>
         </div>
 
         <div class="container_title">
@@ -227,12 +260,6 @@
             Ще раз дякую за гарно проведений вихідний разом із такою чудовою
             історією. Вам натхнення! Буду слідкувати за вашою творчістю
           </p>
-        </div>
-        <div class="container_title">
-        <h2 class="title">Відео історія написання</h2>
-        </div>
-        <div class="video_wrapper">
-          <iframe src="https://www.youtube.com/embed/Z1an6B7HuCM?si=jnt1otA9JEzfqocC" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
         </div>
       </section>
     </main>
@@ -342,8 +369,86 @@
       </div>
     </div>
 
+    <div class="backdrop" id="buy-backdrop">
+      <div class="modal modal-buy">
+        <button class="modal-close-btn" id="close-buy-modal" type="button">
+          ✕
+        </button>
+        <h2>Оформлення замовлення</h2>
+        <form
+          class="contact-form"
+          id="order-form"
+          action="https://formspree.io/f/xldqkrkl"
+          method="POST"
+        >
+          <input
+            type="hidden"
+            name="Товар"
+            value="Книга: Ленні: у серці паразита"
+          />
+
+          <label
+            >Ім'я:
+            <input type="text" name="first_name" required />
+          </label>
+
+          <label
+            >Прізвище:
+            <input type="text" name="last_name" required />
+          </label>
+
+          <label
+            >Телефон:
+            <input type="tel" name="phone" placeholder="+380" required />
+          </label>
+
+          <div class="np-container">
+            <label
+              >Місто:
+              <input
+                type="text"
+                id="np-city"
+                name="city"
+                placeholder="Почніть вводити місто..."
+                autocomplete="off"
+                required
+              />
+              <div id="city-results" class="autocomplete-results"></div>
+            </label>
+
+            <label
+              >Відділення або Поштомат:
+              <input
+                type="text"
+                id="np-branch-input"
+                placeholder="Введіть номер або адресу..."
+                autocomplete="off"
+                disabled
+                required
+              />
+              <div id="branch-results" class="autocomplete-results"></div>
+
+              <input
+                type="hidden"
+                name="warehouse_address"
+                id="warehouse-final-value"
+              />
+            </label>
+          </div>
+
+          <button class="send-btn" type="submit">Підтвердити замовлення</button>
+
+          <p
+            id="order-feedback"
+            style="text-align: center; margin-top: 15px; font-weight: bold"
+          ></p>
+        </form>
+      </div>
+    </div>
+
     <script src="./java/modal.js"></script>
     <script src="./java/carousel.js"></script>
     <script src="./java/read_more.js"></script>
+    <script src="./java/order.js"></script>
   </body>
 </html>
