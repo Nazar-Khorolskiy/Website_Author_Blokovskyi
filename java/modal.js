@@ -1,25 +1,35 @@
-const backdrop = document.querySelector(".backdrop");
-const openBtns = document.querySelectorAll(".contact-open");
-const closeBtn = document.querySelector(".modal-close-btn");
+const contactBackdrop = document.getElementById("contact-backdrop");
+const openContactBtns = document.querySelectorAll(".contact-open");
+const closeContactBtn = document.getElementById("close-contact-modal");
 const phoneInput = document.querySelector(".phone-input");
 
-const toggleModal = () => {
-  backdrop.classList.toggle("is-open");
+openContactBtns.forEach((btn) => {
+  btn.onclick = () => contactBackdrop.classList.add("is-open");
+});
+
+const closeContactModal = () => {
+  contactBackdrop.classList.remove("is-open");
 };
 
-openBtns.forEach((btn) => {
-  btn.addEventListener("click", toggleModal);
+if (closeContactBtn) {
+  closeContactBtn.onclick = closeContactModal;
+}
+
+contactBackdrop.addEventListener("click", (e) => {
+  if (e.target === contactBackdrop) closeContactModal();
 });
 
-closeBtn.addEventListener("click", toggleModal);
+if (phoneInput) {
+  phoneInput.addEventListener("input", (e) => {
+    let value = e.target.value.replace(/\D/g, "");
 
-backdrop.addEventListener("click", (e) => {
-  if (e.target === backdrop) toggleModal();
-});
+    if (value.startsWith("380")) {
+      value = value.slice(3);
+    }
 
-phoneInput.addEventListener("input", () => {
-  phoneInput.value = phoneInput.value.replace(/\D/g, "").slice(0, 9);
-});
+    e.target.value = value.slice(0, 9);
+  });
+}
 
 /* Форма отправки сообщения на почту, с последующим фидбеком для пользователя и закрытием формы */
 

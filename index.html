@@ -310,7 +310,8 @@
             <div class="review-card">
               <h3 class="review-author">Юлія</h3>
               <p class="review-text">
-                Ще раз дякую за гарно проведений вихідний разом із такою чудовою історією. Вам натхнення! Буду слідкувати за вашою творчістю
+                Ще раз дякую за гарно проведений вихідний разом із такою чудовою
+                історією. Вам натхнення! Буду слідкувати за вашою творчістю
               </p>
             </div>
           </div>
@@ -377,7 +378,7 @@
       </div>
     </footer>
 
-    <div class="backdrop">
+    <div id="contact-backdrop" class="backdrop">
       <div class="modal">
         <button class="modal-close-btn" type="button">✕</button>
         <h2>Зв'яжіться з автором</h2>
@@ -399,14 +400,15 @@
           <label>
             Телефон:
             <div class="phone-wrap">
-              <span class="phone-prefix">+380</span>
               <input
                 class="phone-input"
+                id="phone"
                 type="tel"
                 name="phone"
-                maxlength="9"
+                placeholder=" "
                 required
               />
+              <span class="phone-prefix">+380</span>
             </div>
           </label>
 
