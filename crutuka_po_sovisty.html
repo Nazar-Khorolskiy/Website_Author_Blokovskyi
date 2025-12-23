@@ -79,19 +79,34 @@
         <div class="container_title">
           <h2 class="title">Відгуки</h2>
         </div>
-        <div class="container_text_book_1">
-          <p>Liliia</p>
-          <p class="text_author">
-            Такий креативний підхід,цікава історія,заставляє задуматися. Автор
-            талановитий і має безмежний потенціал!Із задоволенням прочитала.
-          </p>
-          <p>DrobTim</p>
-          <p class="text_author">
-            Круте зображення душі головного героя особливо цікава ідея, де
-            Жадібність з'їв Щедрість. Совість шкода. Він там єдиний нормальный
-          </p>
-          <p>Герман Федотов</p>
-          <p class="text_author">Зацікавили, та коли буде продовження?</p>
+        <div class="reviews-wrapper">
+          <button class="review-control prev" id="rev-prev">❮</button>
+          <button class="review-control next" id="rev-next">❯</button>
+
+          <div class="reviews-container" id="reviews-slider">
+            <div class="review-card">
+              <h3 class="review-author">Liliia</h3>
+              <p class="review-text">
+                Такий креативний підхід, цікава історія, заставляє задуматися.
+                Автор талановитий і має безмежний потенціал! Із задоволенням
+                прочитала.
+              </p>
+            </div>
+
+            <div class="review-card">
+              <h3 class="review-author">DrobTim</h3>
+              <p class="review-text">
+                Круте зображення душі головного героя особливо цікава ідея, де
+                Жадібність з'їв Щедрість. Совість шкода. Він там єдиний
+                нормальный.
+              </p>
+            </div>
+
+            <div class="review-card">
+              <h3 class="review-author">Герман Федотов</h3>
+              <p class="review-text">Зацікавили, та коли буде продовження?</p>
+            </div>
+          </div>
         </div>
       </div>
     </main>
@@ -195,5 +210,7 @@
 
     <script src="./java/modal.js"></script>
     <script src="./java/carousel.js"></script>
+    <script src="./java/read_more.js"></script>
+    <script src="./java/order.js"></script>
   </body>
 </html>

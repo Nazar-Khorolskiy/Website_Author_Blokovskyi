@@ -1,87 +1,87 @@
-const cards = document.querySelectorAll('.book-card');
-let activeIndex = 0;
 
-function loopIndex(index) {
-  return (index + cards.length) % cards.length;
-}
+const initBooksCarousel = () => {
+    const cards = document.querySelectorAll(".book-card");
+    const track = document.querySelector(".carousel-track");
 
-function closeAllDescriptions() {
-}
 
-function updateCarousel() {
-  closeAllDescriptions(); 
+    if (cards.length === 0 || !track) return;
 
-  const leftIndex = loopIndex(activeIndex - 1);
-  const rightIndex = loopIndex(activeIndex + 1);
+    let activeIndex = 0;
+    const loopIndex = (index) => (index + cards.length) % cards.length;
 
-  cards.forEach((card, i) => {
-    card.classList.remove('active', 'side-left', 'side-right', 'hidden');
+    const updateCarousel = () => {
+        const leftIndex = loopIndex(activeIndex - 1);
+        const rightIndex = loopIndex(activeIndex + 1);
 
-    if (i === activeIndex) {
-      card.classList.add('active');
-    } else if (i === leftIndex) {
-      card.classList.add('side-left');
-    } else if (i === rightIndex) {
-      card.classList.add('side-right');
-    } else {
-      card.classList.add('hidden');
-    }
-  });
-}
+        cards.forEach((card, i) => {
+            card.classList.remove("active", "side-left", "side-right", "hidden");
+            if (i === activeIndex) {
+                card.classList.add("active");
+            } else if (i === leftIndex) {
+                card.classList.add("side-left");
+            } else if (i === rightIndex) {
+                card.classList.add("side-right");
+            } else {
+                card.classList.add("hidden");
+            }
+        });
+    };
 
-updateCarousel();
 
-cards.forEach((card, index) => {
-  card.addEventListener('click', (event) => {
-    
-    if (index !== activeIndex) {
-      event.preventDefault(); 
-      
-      activeIndex = index;
-      updateCarousel();
-      
-      return; 
-    }
-  });
+    cards.forEach((card, index) => {
+        card.addEventListener("click", (e) => {
+            if (index !== activeIndex) {
+                e.preventDefault();
+                activeIndex = index;
+                updateCarousel();
+            }
+        });
+    });
+
+
+    let touchStartX = 0;
+    track.addEventListener("touchstart", (e) => {
+        touchStartX = e.touches[0].clientX;
+    }, { passive: true });
+
+    track.addEventListener("touchend", (e) => {
+        const touchEndX = e.changedTouches[0].clientX;
+        const swipeThreshold = 50;
+        if (touchStartX - touchEndX > swipeThreshold) {
+            activeIndex = loopIndex(activeIndex + 1);
+        } else if (touchEndX - touchStartX > swipeThreshold) {
+            activeIndex = loopIndex(activeIndex - 1);
+        }
+        updateCarousel();
+    }, { passive: true });
+
+    updateCarousel();
+};
+
+
+const initReviewsSlider = () => {
+    const slider = document.getElementById("reviews-slider");
+    const btnNext = document.getElementById("rev-next");
+    const btnPrev = document.getElementById("rev-prev");
+
+
+    if (!slider || !btnNext || !btnPrev) return;
+
+    const scrollStep = () => {
+        const card = slider.querySelector(".review-card");
+        return card ? card.clientWidth + 20 : 300;
+    };
+
+    btnNext.onclick = () => {
+        slider.scrollBy({ left: scrollStep(), behavior: "smooth" });
+    };
+
+    btnPrev.onclick = () => {
+        slider.scrollBy({ left: -scrollStep(), behavior: "smooth" });
+    };
+};
+
+document.addEventListener("DOMContentLoaded", () => {
+    initBooksCarousel();
+    initReviewsSlider();
 });
-
-
-let touchStartX = 0;
-let touchStartY = 0;
-let touchEndX = 0;
-
-const track = document.querySelector('.carousel-track');
-
-function handleSwipe() {
-    const swipeThreshold = 50;
-    if (touchEndX < touchStartX - swipeThreshold) {
-        activeIndex = loopIndex(activeIndex + 1);
-        updateCarousel();
-    }
-    if (touchEndX > touchStartX + swipeThreshold) {
-        activeIndex = loopIndex(activeIndex - 1);
-        updateCarousel();
-    }
-}
-
-track.addEventListener('touchstart', (e) => {
-    touchStartX = e.touches[0].clientX;
-    touchStartY = e.touches[0].clientY;
-}, { passive: false });
-
-track.addEventListener('touchmove', (e) => {
-    let touchMoveX = e.touches[0].clientX;
-    let touchMoveY = e.touches[0].clientY;
-
-    let deltaX = Math.abs(touchMoveX - touchStartX);
-    let deltaY = Math.abs(touchMoveY - touchStartY);
-
-    if (deltaX > deltaY) {
-        if (e.cancelable) e.preventDefault();
-    }
-}, { passive: false });
-
-track.addEventListener('touchend', (e) => {
-    touchEndX = e.changedTouches[0].clientX;
-    handleSwipe();
-}, { passive: false });
