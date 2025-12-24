@@ -16,15 +16,6 @@
   <body>
     <header>
       <a class="btn_main" href="./index.html">На головну</a>
-      <div class="container_header">
-        <div class="title_name title_first_name">Михаїл</div>
-        <div class="title_name">Блоковський</div>
-        <img class="header_logo" src="./images/logo.jpg" alt="logo" />
-        <p class="title_text">
-          Автор психологічної драми <br />
-          з елементами фантастики
-        </p>
-      </div>
 
       <div class="container_title">
         <h2 class="title">Я застряг в одній сцені</h2>
@@ -40,7 +31,10 @@
         />
 
         <div class="book-actions">
-          <a href="./books/read/Я застряг в одній сцені А5.pdf" download class="btn-action read-btn"
+          <a
+            href="./books/read/Zastryah_v_odniy_sceny.pdf"
+            download
+            class="btn-action read-btn"
             >Читати</a
           >
           <a href="#" class="btn-action listen-btn">Слухати</a>
@@ -121,7 +115,15 @@
             <div class="review-card">
               <h3 class="review-author">vvd.gms</h3>
               <p class="review-text">
-                Супер! Прослухав за раз обидві частини аудіо версії: на 40 хвилин ніби опинився в іншому всесвіті. Продовжуй! <br>Це найкраща електронна книга яку я чув!!! Ніколи не чув таких легких і водночас дуже глибоких слів. Про ідеї оповідки говорити навіть не варто , це просто нереально, космічне, чудо написання! А спецефекти, яких я не чув в других книгах, просто лагідно підкреслюють звучання всієї розповіді.Особливо мені сподобалось те що все за кадром, просто немає!Чесно сказати я б дуже хотів би глянути фільм за цим твором!
+                Супер! Прослухав за раз обидві частини аудіо версії: на 40
+                хвилин ніби опинився в іншому всесвіті. Продовжуй! <br />Це
+                найкраща електронна книга яку я чув!!! Ніколи не чув таких
+                легких і водночас дуже глибоких слів. Про ідеї оповідки говорити
+                навіть не варто , це просто нереально, космічне, чудо написання!
+                А спецефекти, яких я не чув в других книгах, просто лагідно
+                підкреслюють звучання всієї розповіді.Особливо мені сподобалось
+                те що все за кадром, просто немає!Чесно сказати я б дуже хотів
+                би глянути фільм за цим твором!
               </p>
             </div>
           </div>
@@ -188,11 +190,13 @@
       </div>
     </footer>
 
-    <div class="backdrop">
+    <div class="backdrop" id="contact-backdrop">
       <div class="modal">
-        <button class="modal-close-btn" type="button">✕</button>
+        <button class="modal-close-btn" id="close-contact-modal" type="button">
+          ✕
+        </button>
         <h2>Зв'яжіться з автором</h2>
-        <form class="contact-form">
+        <form class="contact-form" method="POST">
           <label>
             Ім'я:
             <input type="text" name="name" required />
@@ -206,14 +210,14 @@
           <label>
             Телефон:
             <div class="phone-wrap">
-              <span class="phone-prefix">+380</span>
               <input
                 class="phone-input"
                 type="tel"
                 name="phone"
-                maxlength="9"
+                placeholder=" "
                 required
               />
+              <span class="phone-prefix">+380</span>
             </div>
           </label>
 
@@ -222,6 +226,11 @@
             <textarea name="message" rows="4" required></textarea>
           </label>
           <button class="send-btn" type="submit">Відправити</button>
+
+          <p
+            id="form-feedback"
+            style="text-align: center; margin-top: 10px"
+          ></p>
         </form>
       </div>
     </div>

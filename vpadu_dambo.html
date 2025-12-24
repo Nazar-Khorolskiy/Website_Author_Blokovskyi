@@ -16,15 +16,7 @@
   <body>
     <header>
       <a class="btn_main" href="./index.html">На головну</a>
-      <div class="container_header">
-        <div class="title_name title_first_name">Михаїл</div>
-        <div class="title_name">Блоковський</div>
-        <img class="header_logo" src="./images/logo.jpg" alt="logo" />
-        <p class="title_text">
-          Автор психологічної драми <br />
-          з елементами фантастики
-        </p>
-      </div>
+
       <div class="container_title">
         <h2 class="title">Впади дамбо впади</h2>
       </div>
@@ -39,7 +31,10 @@
         />
 
         <div class="book-actions">
-          <a href="./books/read/Впади дамбо впади А5.pdf" download class="btn-action read-btn"
+          <a
+            href="./books/read/Vpadu_domabo.pdf"
+            download
+            class="btn-action read-btn"
             >Читати</a
           >
           <a href="#" class="btn-action listen-btn">Слухати</a>
@@ -76,14 +71,25 @@
             <div class="review-card">
               <h3 class="review-author">Умеренкова Елизавета</h3>
               <p class="review-text">
-                Прочитала оповідання, ледь стримала сльози . Прям відчула яку біль відчувала жінка , коли згадувала , як було добре з коханим ,і розуміла що зараз того всього нема . Розлука це завжди біль . Але дуже рада , шо всеж таки закохані зустрілись , хоч не на землі, але дуже сподіваюся що в раю
+                Прочитала оповідання, ледь стримала сльози . Прям відчула яку
+                біль відчувала жінка , коли згадувала , як було добре з коханим
+                ,і розуміла що зараз того всього нема . Розлука це завжди біль .
+                Але дуже рада , шо всеж таки закохані зустрілись , хоч не на
+                землі, але дуже сподіваюся що в раю
               </p>
             </div>
 
             <div class="review-card">
               <h3 class="review-author">Сніжана Федорова</h3>
               <p class="review-text">
-                Дякую за чудове оповідання! Зайшла по рекомендації мами, якій теж сподобалась Ваша книга і була зачарована лірикою. Ви акцентували на тому, щоб не слідкувати за деталями, однак, саме тема падіння дамби та затоплення й захопила мене спочатку. Оскільки, шістнадцять років тому моє місто затопило внаслідок часткової руйнації дамби. Пам'ятаю цей жах, хоча була дитиною... А ідея того, що Любов підсвідомо чекала свого коханого - блиск! Бажаю подальшого творчого успіху!
+                Дякую за чудове оповідання! Зайшла по рекомендації мами, якій
+                теж сподобалась Ваша книга і була зачарована лірикою. Ви
+                акцентували на тому, щоб не слідкувати за деталями, однак, саме
+                тема падіння дамби та затоплення й захопила мене спочатку.
+                Оскільки, шістнадцять років тому моє місто затопило внаслідок
+                часткової руйнації дамби. Пам'ятаю цей жах, хоча була дитиною...
+                А ідея того, що Любов підсвідомо чекала свого коханого - блиск!
+                Бажаю подальшого творчого успіху!
               </p>
             </div>
 
@@ -99,7 +105,10 @@
 
             <div class="review-card">
               <h3 class="review-author">Liubov Ponomarenko</h3>
-              <p class="review-text">Дуже чутлива оповідка. Емоції головної героїні відчувались прямо через текст. Сподобалась однозначно.</p>
+              <p class="review-text">
+                Дуже чутлива оповідка. Емоції головної героїні відчувались прямо
+                через текст. Сподобалась однозначно.
+              </p>
             </div>
           </div>
         </div>
@@ -165,11 +174,13 @@
       </div>
     </footer>
 
-    <div class="backdrop">
+    <div class="backdrop" id="contact-backdrop">
       <div class="modal">
-        <button class="modal-close-btn" type="button">✕</button>
+        <button class="modal-close-btn" id="close-contact-modal" type="button">
+          ✕
+        </button>
         <h2>Зв'яжіться з автором</h2>
-        <form class="contact-form">
+        <form class="contact-form" method="POST">
           <label>
             Ім'я:
             <input type="text" name="name" required />
@@ -183,14 +194,14 @@
           <label>
             Телефон:
             <div class="phone-wrap">
-              <span class="phone-prefix">+380</span>
               <input
                 class="phone-input"
                 type="tel"
                 name="phone"
-                maxlength="9"
+                placeholder=" "
                 required
               />
+              <span class="phone-prefix">+380</span>
             </div>
           </label>
 
@@ -199,6 +210,11 @@
             <textarea name="message" rows="4" required></textarea>
           </label>
           <button class="send-btn" type="submit">Відправити</button>
+
+          <p
+            id="form-feedback"
+            style="text-align: center; margin-top: 10px"
+          ></p>
         </form>
       </div>
     </div>

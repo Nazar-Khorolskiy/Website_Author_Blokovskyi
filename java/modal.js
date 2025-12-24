@@ -1,103 +1,90 @@
-const contactBackdrop = document.getElementById("contact-backdrop");
-const openContactBtns = document.querySelectorAll(".contact-open");
-const closeContactBtn = document.getElementById("close-contact-modal");
-const phoneInput = document.querySelector(".phone-input");
-
-openContactBtns.forEach((btn) => {
-  btn.onclick = () => contactBackdrop.classList.add("is-open");
-});
-
-const closeContactModal = () => {
-  contactBackdrop.classList.remove("is-open");
-};
-
-if (closeContactBtn) {
-  closeContactBtn.onclick = closeContactModal;
-}
-
-contactBackdrop.addEventListener("click", (e) => {
-  if (e.target === contactBackdrop) closeContactModal();
-});
-
-if (phoneInput) {
-  phoneInput.addEventListener("input", (e) => {
-    let value = e.target.value.replace(/\D/g, "");
-
-    if (value.startsWith("380")) {
-      value = value.slice(3);
-    }
-
-    e.target.value = value.slice(0, 9);
-  });
-}
-
-/* Форма отправки сообщения на почту, с последующим фидбеком для пользователя и закрытием формы */
-
 document.addEventListener("DOMContentLoaded", () => {
-  const form = document.querySelector(".contact-form");
-  const formFeedback = document.getElementById("form-feedback");
-  const modal = document.querySelector(".modal");
-  const backdrop = document.querySelector(".backdrop"); //
-  const closeBtn = document.querySelector(".modal-close-btn");
+    const backdrop = document.getElementById("contact-backdrop");
+    const form = document.querySelector(".contact-form");
+    const openBtns = document.querySelectorAll(".contact-open");
+    const closeBtn = document.querySelector(".modal-close-btn");
+    const phoneInput = document.querySelector(".phone-input");
 
-  const closeModal = () => {
-    backdrop.classList.remove("is-open");
+    const formFeedback = document.getElementById("form-feedback");
 
-    form.reset();
-    formFeedback.textContent = "";
-    formFeedback.style.color = "initial";
-  };
+    if (!backdrop || !form) return;
 
-  if (closeBtn) {
-    closeBtn.addEventListener("click", closeModal);
-  }
 
-  form.addEventListener("submit", async function (event) {
-    event.preventDefault();
+    const openModal = () => {
+        backdrop.classList.add("is-open");
+        document.body.style.overflow = "hidden";
+    };
 
-    const formData = new FormData(form);
-    const formActionUrl = form.getAttribute("action");
-
-    formFeedback.textContent = "Отправка...";
-    formFeedback.style.color = "blue";
-
-    try {
-      const response = await fetch(formActionUrl, {
-        method: "POST",
-        body: formData,
-        headers: {
-          Accept: "application/json",
-        },
-      });
-
-      if (response.ok) {
+    const closeModal = () => {
+        backdrop.classList.remove("is-open");
+        document.body.style.overflow = "";
         form.reset();
+        if (formFeedback) formFeedback.textContent = "";
+    };
 
-        formFeedback.textContent = "Повідомлення відправлене. Дякую!";
-        formFeedback.style.color = "green";
+    openBtns.forEach(btn => {
+        btn.addEventListener("click", openModal);
+    });
 
-        setTimeout(closeModal, 3000);
-      } else {
-        formFeedback.textContent =
-          "Ошибка при отправке. Проверьте правильность email.";
-        formFeedback.style.color = "red";
-      }
-    } catch (error) {
-      formFeedback.textContent = "Сетевая ошибка. Проверьте ваше соединение.";
-      formFeedback.style.color = "red";
-      console.error("Сетевая ошибка:", error);
+    if (closeBtn) {
+        closeBtn.addEventListener("click", closeModal);
     }
-  });
 
-  backdrop.addEventListener("click", (e) => {
-    if (e.target === backdrop) {
-      closeModal();
-    }
-  });
+    backdrop.addEventListener("click", (e) => {
+        if (e.target === backdrop) closeModal();
+    });
 
-  document.addEventListener("keydown", (e) => {
-    if (e.key === "Escape" && backdrop.classList.contains("is-open")) {
-      closeModal();
+    document.addEventListener("keydown", (e) => {
+        if (e.key === "Escape" && backdrop.classList.contains("is-open")) {
+            closeModal();
+        }
+    });
+
+
+    if (phoneInput) {
+        phoneInput.addEventListener("input", (e) => {
+            let value = e.target.value.replace(/\D/g, "");
+            if (value.startsWith("380")) {
+                value = value.slice(3);
+            }
+            e.target.value = value.slice(0, 9);
+        });
     }
-  });
+
+
+    form.addEventListener("submit", async function (event) {
+        event.preventDefault();
+
+        const formActionUrl = form.getAttribute("action") || "https://formspree.io/f/твой_id"; 
+        
+        if (formFeedback) {
+            formFeedback.textContent = "Надсилання...";
+            formFeedback.style.color = "blue";
+        }
+
+        try {
+            const formData = new FormData(form);
+            const response = await fetch(formActionUrl, {
+                method: "POST",
+                body: formData,
+                headers: { 'Accept': 'application/json' },
+            });
+
+            if (response.ok) {
+                form.reset();
+                if (formFeedback) {
+                    formFeedback.textContent = "Повідомлення відправлене. Дякую!";
+                    formFeedback.style.color = "green";
+                }
+                setTimeout(closeModal, 2000);
+            } else {
+                throw new Error("Server error");
+            }
+        } catch (error) {
+            if (formFeedback) {
+                formFeedback.textContent = "Помилка мережі. Спробуйте пізніше.";
+                formFeedback.style.color = "red";
+            }
+        }
+    });
 });

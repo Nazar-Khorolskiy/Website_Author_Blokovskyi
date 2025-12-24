@@ -16,14 +16,7 @@
   <body>
     <header>
       <a class="btn_main" href="./index.html">На головну</a>
-      <div class="container_header">
-        <div class="title_name title_first_name">Михаїл</div>
-        <div class="title_name">Блоковський</div>
-        <img class="header_logo" src="./images/logo.jpg" alt="logo" />
-        <p class="title_text">
-          Автор психологічної драми <br> з елементами фантастики
-        </p>
-      </div>
+      
       <div class="container_title">
         <h2 class="title">Польова квітка</h2>
       </div>
@@ -34,7 +27,7 @@
         <img class="book_img" src="./images/polova_kvitka_book.jpg" alt="polova_kvitka" />
 
         <div class="book-actions">
-          <a href="./books/read/Польова квітка А5.pdf" download class="btn-action read-btn"
+          <a href="./books/read/Polova_kvitka.pdf" download class="btn-action read-btn"
             >Читати</a
           >
           <a href="#" class="btn-action listen-btn">Слухати</a>
@@ -129,11 +122,13 @@
       </div>
     </footer>
 
-    <div class="backdrop">
+    <div class="backdrop" id="contact-backdrop">
       <div class="modal">
-        <button class="modal-close-btn" type="button">✕</button>
+        <button class="modal-close-btn" id="close-contact-modal" type="button">
+          ✕
+        </button>
         <h2>Зв'яжіться з автором</h2>
-        <form class="contact-form">
+        <form class="contact-form" method="POST">
           <label>
             Ім'я:
             <input type="text" name="name" required />
@@ -147,14 +142,14 @@
           <label>
             Телефон:
             <div class="phone-wrap">
-              <span class="phone-prefix">+380</span>
               <input
                 class="phone-input"
                 type="tel"
                 name="phone"
-                maxlength="9"
+                placeholder=" "
                 required
               />
+              <span class="phone-prefix">+380</span>
             </div>
           </label>
 
@@ -163,6 +158,11 @@
             <textarea name="message" rows="4" required></textarea>
           </label>
           <button class="send-btn" type="submit">Відправити</button>
+
+          <p
+            id="form-feedback"
+            style="text-align: center; margin-top: 10px"
+          ></p>
         </form>
       </div>
     </div>
