@@ -73,7 +73,6 @@ a {
   font-weight: 700;
 }
 
-
 /* Хедер верхняя часть */
 
 .container_header {
@@ -158,8 +157,6 @@ a {
   background-color: rgba(255, 255, 240, 0.3);
 }
 
-
-
 /* Футер низ сайта */
 
 .container_footer {
@@ -215,7 +212,6 @@ a {
   justify-content: center;
 }
 
-
 /* Раздел про Автора */
 
 .container_text_author_main {
@@ -270,8 +266,6 @@ a {
   display: block;
   margin: 0 auto;
 }
-
-
 
 /* Секция Твори */
 
@@ -341,8 +335,6 @@ a {
   -webkit-user-drag: none;
 }
 
-
-
 /* Видео */
 
 .video_wrapper {
@@ -359,8 +351,6 @@ a {
   border-radius: 12px;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
 }
-
-
 
 /* Модальное окно */
 
@@ -483,7 +473,6 @@ a {
   transition: padding 0.2s ease;
 }
 
-
 /* Ленні книга */
 
 .lenni_img {
@@ -502,7 +491,27 @@ a {
   text-align: center;
   color: var(--color-primary-white);
   font-weight: 400;
-  font-size: 16px;
+  font-size: 18px;
+}
+
+/* Видео отзывы на книгу Ленни */
+
+.video_vertical_wrapper {
+  position: relative;
+  width: 100%;
+  max-width: 300px;
+  aspect-ratio: 9 / 16;
+  margin: 0 auto;
+}
+
+.video_vertical_wrapper iframe {
+  width: 100%;
+  height: 100%;
+  border-radius: 15px;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+.reviews_video_grid {
+  margin-bottom: 30px;
 }
 
 /* Рассказы в разделе карусели */
@@ -629,7 +638,6 @@ a {
   margin-bottom: 20px;
 }
 
-
 /* Кнопка Придбати и модальное окно для покупки с Новой Почтой */
 
 .container_buy_btn {
@@ -692,7 +700,6 @@ a {
 
 /* Раздел с отзывами и эффектом перелистывания */
 
-
 .reviews-wrapper {
   position: relative;
   width: 100%;
@@ -702,7 +709,6 @@ a {
   box-sizing: border-box;
   overflow: hidden;
 }
-
 
 .reviews-container {
   display: flex;
@@ -751,13 +757,6 @@ a {
   margin: 0;
 }
 
-@media (min-width: 768px) {
-  .review-card {
-    flex: 0 0 calc(50% - 10px);
-    scroll-snap-align: start;
-  }
-}
-
 .review-control {
   position: absolute;
   top: 50%;
@@ -774,16 +773,19 @@ a {
   align-items: center;
   justify-content: center;
   font-size: 20px;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
 }
 
 .review-control:hover {
   opacity: 1;
 }
 
-.review-control.prev { left: 5px; }
-.review-control.next { right: 5px; }
-
+.review-control.prev {
+  left: 5px;
+}
+.review-control.next {
+  right: 5px;
+}
 
 @media (max-width: 480px) {
   .review-card {
@@ -791,5 +793,239 @@ a {
   }
   .reviews-wrapper {
     padding: 0 35px;
+  }
+}
+
+/* ====== Адаптация для Планшетов (768px) и Лептопов (1024px) ===== */
+
+/* Адаптация для Планшетов (768px) */
+
+@media (min-width: 768px) {
+  .title_name {
+    font-size: 60px;
+  }
+
+  .title_first_name {
+    font-size: 30px;
+  }
+
+  .header_logo {
+    width: 350px;
+  }
+  .container_nav {
+    max-width: 85%;
+    margin: 0 auto;
+  }
+
+  .button_nav {
+    font-size: 18px;
+    padding: 12px 20px;
+  }
+
+  .author_foto {
+    width: 400px;
+  }
+
+  /* Отзывы */
+  .review-card {
+    flex: 0 0 calc(50% - 10px);
+    min-height: 250px;
+    scroll-snap-align: start;
+  }
+  .read-more-btn {
+    display: none !important;
+  }
+
+  .hidden-content {
+    max-height: none !important;
+    overflow: visible !important;
+    display: block !important;
+  }
+
+  /* Стили для книг отдельных страниц в каруселе */
+
+  .book_img {
+    max-width: 500px;
+  }
+
+  .btn_main {
+    font-size: 20px;
+    padding: 8px 18px;
+  }
+
+  /* Футер */
+
+  .social_media {
+    width: 60px;
+    height: 60px;
+  }
+
+  .footer_logo {
+    width: 220px;
+  }
+
+  .btn_footer_modal {
+    width: 160px;
+    height: 50px;
+    font-size: 16px;
+  }
+}
+
+/* Адаптация для Лептопов (1024px) */
+@media (min-width: 1024px) {
+  body {
+    font-size: 20px;
+  }
+
+  .title_name {
+    font-size: 80px;
+  }
+
+  .title_first_name {
+    font-size: 50px;
+  }
+
+  .header_logo {
+    width: 450px;
+  }
+
+  .container_title {
+    margin: 60px 0 40px;
+  }
+
+  .title {
+    font-size: 28px;
+  }
+
+  /* Хедер */
+
+  .container_header {
+    margin: 100px 0;
+  }
+
+  /* Секция АВТОР */
+
+  .section_author {
+    max-width: 1000px;
+    margin: 0 auto;
+    display: block;
+    padding: 0 20px;
+    overflow: hidden;
+  }
+
+  .author_foto {
+    float: left;
+    margin-right: 30px;
+    margin-bottom: 10px;
+  }
+
+  .container_text_author_main {
+    display: block;
+    padding: 15px;
+    border-radius: 12px;
+  }
+
+  .container_text_author_main,
+  .container_text_book_1 {
+    max-width: 85%;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 20px 30px;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  }
+
+  .container_text_book_1 {
+    margin-top: 30px;
+    margin-bottom: 40px;
+  }
+
+  /* Секция ТВОРЫ */
+  .books-carousel {
+    max-width: 900px;
+    height: 550px;
+  }
+
+  .carousel-track {
+    width: 100%;
+  }
+
+  .book-card {
+    width: 240px;
+  }
+
+  .book-card.side-left {
+    transform: translateX(-200px) scale(0.85);
+  }
+  .book-card.side-right {
+    transform: translateX(200px) scale(0.85);
+  }
+
+  /* Книга ЛЕННИ */
+  .section_lenni_content {
+    display: flex;
+    max-width: 1000px;
+    margin: 0 auto;
+    gap: 40px;
+    align-items: center;
+  }
+
+  .lenni_img {
+    width: 400px;
+  }
+
+  /* Видео */
+  .video_wrapper {
+    max-width: 850px;
+  }
+
+  .review-author {
+    font-size: 24px;
+  }
+
+  .review-text {
+    font-size: 16px;
+  }
+
+  .reviews_video_grid {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    max-width: 1000px;
+    margin: 0 auto;
+  }
+  /* Футер */
+  .footer_socials_row {
+    gap: 40px;
+  }
+
+  .social_media {
+    width: 70px;
+    height: 70px;
+  }
+
+  .footer_logo {
+    width: 250px;
+  }
+
+  .btn_footer_modal {
+    width: 200px;
+    height: 60px;
+    font-size: 18px;
+  }
+
+  /* Модальные окна */
+  .modal {
+    width: 450px;
+    padding: 40px;
+  }
+
+  /* Стили для книг отдельных страниц в каруселе */
+
+  .book_img {
+    max-width: 600px;
+  }
+
+  .btn_main {
   }
 }
