@@ -510,9 +510,56 @@ a {
   border-radius: 15px;
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
 }
-.reviews_video_grid {
-  margin-bottom: 30px;
+
+.video-reviews-wrapper {
+  position: relative;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 40px;
+  box-sizing: border-box;
 }
+
+.video-reviews-container {
+  display: flex;
+  gap: 20px;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+  scrollbar-width: none;
+  padding: 20px 0;
+  touch-action: pan-y;
+}
+
+.video-reviews-container::-webkit-scrollbar {
+  display: none;
+}
+
+.video-card {
+  flex: 0 0 100%;
+  scroll-snap-align: center;
+  box-sizing: border-box;
+}
+
+.video-control {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: var(--color-primary-orange);
+  color: white;
+  border: none;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  cursor: pointer;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.video-control.prev { left: 5px; }
+.video-control.next { right: 5px; }
 
 /* Рассказы в разделе карусели */
 
@@ -842,6 +889,10 @@ a {
     display: block !important;
   }
 
+  .video-card {
+    flex: 0 0 calc(50% - 10px);
+  }
+
   /* Стили для книг отдельных страниц в каруселе */
 
   .book_img {
@@ -987,13 +1038,6 @@ a {
     font-size: 16px;
   }
 
-  .reviews_video_grid {
-    display: flex;
-    justify-content: center;
-    gap: 30px;
-    max-width: 1000px;
-    margin: 0 auto;
-  }
   /* Футер */
   .footer_socials_row {
     gap: 40px;
@@ -1012,6 +1056,10 @@ a {
     width: 200px;
     height: 60px;
     font-size: 18px;
+  }
+
+  .video-card {
+    flex: 0 0 calc(33.333% - 14px);
   }
 
   /* Модальные окна */
