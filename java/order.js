@@ -149,3 +149,15 @@ orderForm.onsubmit = async (e) => {
     orderFeedback.textContent = "Сталася помилка з'єднання.";
   }
 };
+
+buyBackdrop.addEventListener('click', (e) => {
+    if (e.target === buyBackdrop) {
+        buyBackdrop.classList.remove('is-open');
+    }
+});
+
+document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && buyBackdrop.classList.contains('is-open')) {
+        buyBackdrop.classList.remove('is-open');
+    }
+});
