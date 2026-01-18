@@ -91,3 +91,33 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 });
+
+
+document.addEventListener('DOMContentLoaded', () => {
+  
+  const listenBtn = document.getElementById('btn-listen');
+  const hideBtn = document.getElementById('btn-hide');
+  const audioSection = document.getElementById('audio-player-section');
+
+  listenBtn.addEventListener('click', () => {
+    audioSection.style.display = 'block';
+    
+    setTimeout(() => {
+      audioSection.classList.add('is-open');
+    }, 10);
+
+    listenBtn.classList.add('hidden');
+
+    audioSection.scrollIntoView({ behavior: 'smooth' });
+  });
+
+  hideBtn.addEventListener('click', () => {
+    audioSection.classList.remove('is-open');
+
+    setTimeout(() => {
+      audioSection.style.display = 'none';
+      listenBtn.classList.remove('hidden');
+      listenBtn.scrollIntoView({ behavior: 'smooth' });
+    }, 600);
+  });
+});
